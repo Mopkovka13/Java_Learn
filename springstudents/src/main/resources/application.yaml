@@ -1,0 +1,17 @@
+spring:
+  datasource:
+    url: jdbc:postgresql://localhost:5432/student_db
+    username: postgres
+    password: postgresmaster
+    driver-class-name: org.postgresql.Driver
+  jpa:
+    hibernate:
+      # create-drop для тестового проекта
+      # update позволяет создавать таблицы, если они не существуют
+      ddl-auto: update
+      database: postgresql
+      database-platform: org.hibernate.dialect.PostgreSQLDialect
+      show-sql: true # выводит SQL запросы
+      properties:
+        hibernate:
+          format_sql: true
