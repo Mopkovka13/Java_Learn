@@ -1,0 +1,27 @@
+services:
+  # docker ps
+  # docker exec -it postgres bash - войти в контейнер
+  # psql -U mopkovka - войти в postgres
+  # \l   - список баз
+  # \c customer - подключиться по названию
+  # ctrl + D - exit
+  db:
+    container_name: postgres
+    image: postgres
+    environment:
+      POSTGRES_USER: mopkovka
+      POSTGRES_PASSWORD: admin
+      PGDATA: /data/postgres
+    volumes:
+      - db:/data/postgres
+    ports:
+      - "5332:5432"
+    networks:
+      - db
+    restart: unless-stopped
+networks:
+  db:
+    driver: bridge
+
+volumes:
+  db:
