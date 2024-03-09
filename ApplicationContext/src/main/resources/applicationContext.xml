@@ -7,8 +7,18 @@
     http://www.springframework.org/schema/context
     http://www.springframework.org/schema/context/spring-context.xsd">
 
+    <!--Указали файл с конфигурациями -->
+    <context:property-placeholder location="classpath:application.properties"/>
+
     <bean id="myPet"
         class="org.example.models.Dog">
+    </bean>
+
+    <bean id="myPersonWithPropFile"
+          class="org.example.models.Person">
+        <constructor-arg ref="myPet"/>
+        <constructor-arg name="name" value="${person.name}"/>
+        <constructor-arg name="age" value="${person.age}"/>
     </bean>
 
     <bean id="myPerson"
