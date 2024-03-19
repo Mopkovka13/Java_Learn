@@ -1,4 +1,4 @@
-package hibetnate_test2.entity;
+package hibetnate_one_to_one.entity;
 
 import jakarta.persistence.*;
 

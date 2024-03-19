@@ -1,12 +1,12 @@
-package hibetnate_test2;
+package hibetnate_one_to_one;
 
-import hibetnate_test2.entity.Detail;
-import hibetnate_test2.entity.Employee;
+import hibetnate_one_to_one.entity.Detail;
+import hibetnate_one_to_one.entity.Employee;
 import org.hibernate.Session;
 import org.hibernate.SessionFactory;
 import org.hibernate.cfg.Configuration;
 
-public class SaveBiConnection {
+public class Save {
     public static void main(String[] args) {
         SessionFactory factory = new Configuration()
                 .configure("hibernate.cfg.xml") // Писать не обязательно, если название не менялось
@@ -22,10 +22,9 @@ public class SaveBiConnection {
             Detail detail = new Detail("Volgograd", "9047791234", "evil_egor@gmail.com");
 
             employee.setEmpDetail(detail);
-            detail.setEmployee(employee);
 
             session.beginTransaction();
-            session.save(detail);
+            session.save(employee);
             session.getTransaction().commit();
 
             System.out.println("New employee created: " + employee);

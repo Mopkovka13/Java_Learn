@@ -1,4 +1,4 @@
-package hibetnate_test2.entity;
+package hibetnate_one_to_one.entity;
 
 // Используем аннотации JPA, JPA - это спецификация для Java Persistence API
 import jakarta.persistence.*;
